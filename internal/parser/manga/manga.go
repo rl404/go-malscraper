@@ -1,4 +1,3 @@
-// Package manga provides parser for manga-related pages.
 package manga
 
 import (

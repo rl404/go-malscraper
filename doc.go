@@ -27,7 +27,8 @@
 //
 // Malscraper provides caching system. As default, malscraper is using in-memory
 // but it is recommended to use persistent cache such as redis. That's why malscraper allows
-// you to create your own cacher which implements this interface.
+// you to create your own cacher which implements this interface. Or you can
+// choose from `https://github.com/rl404/mal-plugin/tree/master/cache`.
 //
 //  type Cacher interface {
 //  	Get(key string, data interface{}) error
