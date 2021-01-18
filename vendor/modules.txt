@@ -2,7 +2,6 @@
 ## explicit
 github.com/PuerkitoBio/goquery
 # github.com/allegro/bigcache v1.2.1
-## explicit
 github.com/allegro/bigcache
 github.com/allegro/bigcache/queue
 # github.com/andybalholm/cascadia v1.1.0
@@ -15,14 +14,16 @@ github.com/davecgh/go-spew/spew
 github.com/grokify/html-strip-tags-go
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
+# github.com/rl404/mal-plugin v0.0.0-20210116062951-125d94187ac7
+## explicit
+github.com/rl404/mal-plugin/cache/bigcache
 # github.com/stretchr/objx v0.1.0
 github.com/stretchr/objx
-# github.com/stretchr/testify v1.6.1
+# github.com/stretchr/testify v1.7.0
 ## explicit
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
-github.com/stretchr/testify/require
-# golang.org/x/net v0.0.0-20200202094626-16171245cfb2
+# golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb
 golang.org/x/net/html
 golang.org/x/net/html/atom
 # gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c

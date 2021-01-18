@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/rl404/go-malscraper/pkg/bigcache"
+	"github.com/rl404/mal-plugin/cache/bigcache"
 )
 
 // Cacher is caching interface required for malscraper
