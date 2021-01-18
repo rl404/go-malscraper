@@ -24,7 +24,7 @@ func New(api internal.API, c internal.Cacher, l internal.Logger) internal.API {
 	}
 }
 
-// Simple cacher wrapper withh log to prevent writing
+// Simple cacher wrapper with log to prevent writing
 // repetitive log code.
 type cacherLog struct {
 	cacher internal.Cacher

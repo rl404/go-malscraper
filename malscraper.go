@@ -32,7 +32,7 @@ func New(cfg Config) (*Malscraper, error) {
 	api = cacher.New(api, cfg.Cacher, cfg.Logger)
 
 	// Init validator which validates requested params
-	// before proccessing the request.
+	// before processing the request.
 	api = validator.New(api, cfg.Cacher, cfg.Logger)
 
 	return &Malscraper{
