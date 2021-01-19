@@ -54,7 +54,7 @@ func (v *Validator) isArticleTagValid(tag string) bool {
 	v.logger.Trace("[%s] checking valid article tag...", keyArticleTag)
 	if v.cacher.Get(keyArticleTag, &tags) == nil {
 		for _, t := range tags {
-			if t.Name == tag {
+			if t.Tag == tag {
 				return true
 			}
 		}
@@ -108,32 +108,32 @@ func (v *Validator) isNewsTagValid(tag string) bool {
 	v.logger.Trace("[%s] checking valid news tag...", keyNewsTag)
 	if v.cacher.Get(keyNewsTag, &tags) == nil {
 		for _, t := range tags.Anime {
-			if t.Name == tag {
+			if t.Tag == tag {
 				return true
 			}
 		}
 		for _, t := range tags.Manga {
-			if t.Name == tag {
+			if t.Tag == tag {
 				return true
 			}
 		}
 		for _, t := range tags.People {
-			if t.Name == tag {
+			if t.Tag == tag {
 				return true
 			}
 		}
 		for _, t := range tags.Music {
-			if t.Name == tag {
+			if t.Tag == tag {
 				return true
 			}
 		}
 		for _, t := range tags.Event {
-			if t.Name == tag {
+			if t.Tag == tag {
 				return true
 			}
 		}
 		for _, t := range tags.Industry {
-			if t.Name == tag {
+			if t.Tag == tag {
 				return true
 			}
 		}
