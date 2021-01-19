@@ -3,13 +3,14 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
 // GetRecommendation to get recommendation detail information.
 func (c *Cacher) GetRecommendation(rType string, id1, id2 int) (data *model.Recommendation, code int, err error) {
 	// Get from cache.
-	key := getKey(keyRecommendation, rType, id1, id2)
+	key := internal.GetKey(internal.KeyRecommendation, rType, id1, id2)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -28,7 +29,7 @@ func (c *Cacher) GetRecommendation(rType string, id1, id2 int) (data *model.Reco
 // GetRecommendations to get anime/manga recommendation list.
 func (c *Cacher) GetRecommendations(t string, page int) (data []model.Recommendation, code int, err error) {
 	// Get from cache.
-	key := getKey(keyRecommendations, t, page)
+	key := internal.GetKey(internal.KeyRecommendations, t, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

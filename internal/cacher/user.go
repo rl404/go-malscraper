@@ -3,13 +3,14 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
 // GetUser to get user detail information.
 func (c *Cacher) GetUser(user string) (data *model.User, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUser, user)
+	key := internal.GetKey(internal.KeyUser, user)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -28,7 +29,7 @@ func (c *Cacher) GetUser(user string) (data *model.User, code int, err error) {
 // GetUserStats to get user stats detail information.
 func (c *Cacher) GetUserStats(user string) (data *model.UserStats, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserStats, user)
+	key := internal.GetKey(internal.KeyUserStats, user)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -47,7 +48,7 @@ func (c *Cacher) GetUserStats(user string) (data *model.UserStats, code int, err
 // GetUserFavorite to get user favorite list.
 func (c *Cacher) GetUserFavorite(user string) (data *model.UserFavorite, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserFavorite, user)
+	key := internal.GetKey(internal.KeyUserFavorite, user)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -66,7 +67,7 @@ func (c *Cacher) GetUserFavorite(user string) (data *model.UserFavorite, code in
 // GetUserFriend to get user friend list.
 func (c *Cacher) GetUserFriend(user string, page int) (data []model.UserFriend, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserFriend, user, page)
+	key := internal.GetKey(internal.KeyUserFriend, user, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -85,7 +86,7 @@ func (c *Cacher) GetUserFriend(user string, page int) (data []model.UserFriend, 
 // GetUserHistory to get user history list.
 func (c *Cacher) GetUserHistory(user string, t string) (data []model.UserHistory, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserHistory, user, t)
+	key := internal.GetKey(internal.KeyUserHistory, user, t)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -104,7 +105,7 @@ func (c *Cacher) GetUserHistory(user string, t string) (data []model.UserHistory
 // GetUserReview to get user review list.
 func (c *Cacher) GetUserReview(user string, page int) (data []model.Review, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserReview, user, page)
+	key := internal.GetKey(internal.KeyUserReview, user, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -123,7 +124,7 @@ func (c *Cacher) GetUserReview(user string, page int) (data []model.Review, code
 // GetUserRecommendation to get user recommendation list.
 func (c *Cacher) GetUserRecommendation(user string, page int) (data []model.Recommendation, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserRecommendation, user, page)
+	key := internal.GetKey(internal.KeyUserRecommendation, user, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -142,7 +143,7 @@ func (c *Cacher) GetUserRecommendation(user string, page int) (data []model.Reco
 // GetUserClub to get user club list.
 func (c *Cacher) GetUserClub(user string) (data []model.Item, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserClub, user)
+	key := internal.GetKey(internal.KeyUserClub, user)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -161,7 +162,7 @@ func (c *Cacher) GetUserClub(user string) (data []model.Item, code int, err erro
 // GetUserAnime to get user anime list.
 func (c *Cacher) GetUserAnime(query model.UserListQuery) (data []model.UserAnime, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserAnime, query.Username, query.Page, query.Status, query.Order, query.Tag)
+	key := internal.GetKey(internal.KeyUserAnime, query.Username, query.Page, query.Status, query.Order, query.Tag)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -180,7 +181,7 @@ func (c *Cacher) GetUserAnime(query model.UserListQuery) (data []model.UserAnime
 // GetUserManga to get user manga list.
 func (c *Cacher) GetUserManga(query model.UserListQuery) (data []model.UserManga, code int, err error) {
 	// Get from cache.
-	key := getKey(keyUserManga, query.Username, query.Page, query.Status, query.Order, query.Tag)
+	key := internal.GetKey(internal.KeyUserManga, query.Username, query.Page, query.Status, query.Order, query.Tag)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

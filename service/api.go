@@ -1,4 +1,4 @@
-package internal
+package service
 
 import "github.com/rl404/go-malscraper/model"
 

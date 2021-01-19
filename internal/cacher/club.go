@@ -3,13 +3,14 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
 // GetClubs to get club list.
 func (c *Cacher) GetClubs(page int) (data []model.ClubSearch, code int, err error) {
 	// Get from cache.
-	key := getKey(keyClubs, page)
+	key := internal.GetKey(internal.KeyClubs, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -28,7 +29,7 @@ func (c *Cacher) GetClubs(page int) (data []model.ClubSearch, code int, err erro
 // GetClub to get club detail information.
 func (c *Cacher) GetClub(id int) (data *model.Club, code int, err error) {
 	// Get from cache.
-	key := getKey(keyClub, id)
+	key := internal.GetKey(internal.KeyClub, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -47,7 +48,7 @@ func (c *Cacher) GetClub(id int) (data *model.Club, code int, err error) {
 // GetClubMember to get club member list.
 func (c *Cacher) GetClubMember(id int, page int) (data []model.ClubMember, code int, err error) {
 	// Get from cache.
-	key := getKey(keyClubMember, id, page)
+	key := internal.GetKey(internal.KeyClubMember, id, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -66,7 +67,7 @@ func (c *Cacher) GetClubMember(id int, page int) (data []model.ClubMember, code 
 // GetClubPicture to get club picture list.
 func (c *Cacher) GetClubPicture(id int) (data []string, code int, err error) {
 	// Get from cache.
-	key := getKey(keyClubPicture, id)
+	key := internal.GetKey(internal.KeyClubPicture, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -85,7 +86,7 @@ func (c *Cacher) GetClubPicture(id int) (data []string, code int, err error) {
 // GetClubRelated to get club related list.
 func (c *Cacher) GetClubRelated(id int) (data *model.ClubRelated, code int, err error) {
 	// Get from cache.
-	key := getKey(keyClubRelated, id)
+	key := internal.GetKey(internal.KeyClubRelated, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

@@ -3,20 +3,20 @@ package cacher
 import (
 	"time"
 
-	"github.com/rl404/go-malscraper/internal"
+	"github.com/rl404/go-malscraper/service"
 )
 
 // Cacher intercepts request to check the requested
 // data to cache before actually access and parse
 // MyAnimeList web.
 type Cacher struct {
-	api    internal.API
-	cacher internal.Cacher
-	logger internal.Logger
+	api    service.API
+	cacher service.Cacher
+	logger service.Logger
 }
 
 // New to create new cacher.
-func New(api internal.API, c internal.Cacher, l internal.Logger) internal.API {
+func New(api service.API, c service.Cacher, l service.Logger) service.API {
 	return &Cacher{
 		api:    api,
 		cacher: newCacherLog(c, l),
@@ -27,14 +27,14 @@ func New(api internal.API, c internal.Cacher, l internal.Logger) internal.API {
 // Simple cacher wrapper with log to prevent writing
 // repetitive log code.
 type cacherLog struct {
-	cacher internal.Cacher
-	logger internal.Logger
+	cacher service.Cacher
+	logger service.Logger
 }
 
 // Testable time since func.
 var timeSince = time.Since
 
-func newCacherLog(c internal.Cacher, l internal.Logger) internal.Cacher {
+func newCacherLog(c service.Cacher, l service.Logger) service.Cacher {
 	return &cacherLog{
 		cacher: c,
 		logger: l,

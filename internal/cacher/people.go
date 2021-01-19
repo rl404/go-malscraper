@@ -3,13 +3,14 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
 // GetPeople to get people detail information.
 func (c *Cacher) GetPeople(id int) (data *model.People, code int, err error) {
 	// Get from cache.
-	key := getKey(keyPeople, id)
+	key := internal.GetKey(internal.KeyPeople, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -28,7 +29,7 @@ func (c *Cacher) GetPeople(id int) (data *model.People, code int, err error) {
 // GetPeopleCharacter to get people anime character list.
 func (c *Cacher) GetPeopleCharacter(id int) (data []model.PeopleCharacter, code int, err error) {
 	// Get from cache.
-	key := getKey(keyPeopleChar, id)
+	key := internal.GetKey(internal.KeyPeopleChar, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -47,7 +48,7 @@ func (c *Cacher) GetPeopleCharacter(id int) (data []model.PeopleCharacter, code 
 // GetPeopleStaff to get people anime staff list.
 func (c *Cacher) GetPeopleStaff(id int) (data []model.Role, code int, err error) {
 	// Get from cache.
-	key := getKey(keyPeopleStaff, id)
+	key := internal.GetKey(internal.KeyPeopleStaff, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -66,7 +67,7 @@ func (c *Cacher) GetPeopleStaff(id int) (data []model.Role, code int, err error)
 // GetPeopleManga to get people published manga list.
 func (c *Cacher) GetPeopleManga(id int) (data []model.Role, code int, err error) {
 	// Get from cache.
-	key := getKey(keyPeopleManga, id)
+	key := internal.GetKey(internal.KeyPeopleManga, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -85,7 +86,7 @@ func (c *Cacher) GetPeopleManga(id int) (data []model.Role, code int, err error)
 // GetPeopleNews to get people news list.
 func (c *Cacher) GetPeopleNews(id int) (data []model.NewsItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyPeopleNews, id)
+	key := internal.GetKey(internal.KeyPeopleNews, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -104,7 +105,7 @@ func (c *Cacher) GetPeopleNews(id int) (data []model.NewsItem, code int, err err
 // GetPeopleArticle to get people featured article list.
 func (c *Cacher) GetPeopleArticle(id int) (data []model.ArticleItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyPeopleArticle, id)
+	key := internal.GetKey(internal.KeyPeopleArticle, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -123,7 +124,7 @@ func (c *Cacher) GetPeopleArticle(id int) (data []model.ArticleItem, code int, e
 // GetPeoplePicture to get people picture list.
 func (c *Cacher) GetPeoplePicture(id int) (data []string, code int, err error) {
 	// Get from cache.
-	key := getKey(keyPeoplePicture, id)
+	key := internal.GetKey(internal.KeyPeoplePicture, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

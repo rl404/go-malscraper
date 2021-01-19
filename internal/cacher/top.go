@@ -3,13 +3,14 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
 // GetTopAnime to get top anime list.
 func (c *Cacher) GetTopAnime(t int, page int) (data []model.TopAnime, code int, err error) {
 	// Get from cache.
-	key := getKey(keyTopAnime, t, page)
+	key := internal.GetKey(internal.KeyTopAnime, t, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -28,7 +29,7 @@ func (c *Cacher) GetTopAnime(t int, page int) (data []model.TopAnime, code int, 
 // GetTopManga to get top manga list.
 func (c *Cacher) GetTopManga(t int, page int) (data []model.TopManga, code int, err error) {
 	// Get from cache.
-	key := getKey(keyTopManga, t, page)
+	key := internal.GetKey(internal.KeyTopManga, t, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -47,7 +48,7 @@ func (c *Cacher) GetTopManga(t int, page int) (data []model.TopManga, code int, 
 // GetTopCharacter to get top character list.
 func (c *Cacher) GetTopCharacter(page int) (data []model.TopCharacter, code int, err error) {
 	// Get from cache.
-	key := getKey(keyTopCharacter, page)
+	key := internal.GetKey(internal.KeyTopCharacter, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -66,7 +67,7 @@ func (c *Cacher) GetTopCharacter(page int) (data []model.TopCharacter, code int,
 // GetTopPeople to get top people list.
 func (c *Cacher) GetTopPeople(page int) (data []model.TopPeople, code int, err error) {
 	// Get from cache.
-	key := getKey(keyTopPeople, page)
+	key := internal.GetKey(internal.KeyTopPeople, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

@@ -1,6 +1,4 @@
-package internal
-
-import "github.com/rl404/go-malscraper/pkg/mallogger"
+package service
 
 // Logger is logging interface for malscraper.
 // If you use custom logger, try to
@@ -12,12 +10,4 @@ type Logger interface {
 	Warn(format string, args ...interface{})
 	Error(format string, args ...interface{})
 	Fatal(format string, args ...interface{})
-}
-
-// NewLogger to create new default logger.
-func NewLogger(level int, color bool) Logger {
-	if level == 0 {
-		level = mallogger.LevelHigh
-	}
-	return mallogger.New(level, color)
 }

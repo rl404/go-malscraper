@@ -3,13 +3,14 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
 // GetCharacter to get character detail information.
 func (c *Cacher) GetCharacter(id int) (data *model.Character, code int, err error) {
 	// Get from cache.
-	key := getKey(keyCharacter, id)
+	key := internal.GetKey(internal.KeyCharacter, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -28,7 +29,7 @@ func (c *Cacher) GetCharacter(id int) (data *model.Character, code int, err erro
 // GetCharacterArticle to get character featured article list.
 func (c *Cacher) GetCharacterArticle(id int) (data []model.ArticleItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyCharacterArticle, id)
+	key := internal.GetKey(internal.KeyCharacterArticle, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -47,7 +48,7 @@ func (c *Cacher) GetCharacterArticle(id int) (data []model.ArticleItem, code int
 // GetCharacterOgraphy to get character animeography/mangaography list.
 func (c *Cacher) GetCharacterOgraphy(t string, id int) (data []model.Role, code int, err error) {
 	// Get from cache.
-	key := getKey(keyCharacterOgraphy, t, id)
+	key := internal.GetKey(internal.KeyCharacterOgraphy, t, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -66,7 +67,7 @@ func (c *Cacher) GetCharacterOgraphy(t string, id int) (data []model.Role, code 
 // GetCharacterPicture to get character picture list.
 func (c *Cacher) GetCharacterPicture(id int) (data []string, code int, err error) {
 	// Get from cache.
-	key := getKey(keyCharacterPicture, id)
+	key := internal.GetKey(internal.KeyCharacterPicture, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -85,7 +86,7 @@ func (c *Cacher) GetCharacterPicture(id int) (data []string, code int, err error
 // GetCharacterClub to get character club list.
 func (c *Cacher) GetCharacterClub(id int) (data []model.ClubItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyCharacterClub, id)
+	key := internal.GetKey(internal.KeyCharacterClub, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

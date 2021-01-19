@@ -3,17 +3,18 @@ package malscraper
 import (
 	"time"
 
-	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/internal/cacher"
 	"github.com/rl404/go-malscraper/internal/parser"
 	"github.com/rl404/go-malscraper/internal/validator"
+	"github.com/rl404/go-malscraper/service"
+	"github.com/rl404/mal-plugin/cache/nocache"
 )
 
 // Malscraper is malscraper instance which contains all
 // methods to parse MyAnimeList web page.
 type Malscraper struct {
-	api    internal.API
-	cacher internal.Cacher
+	api    service.API
+	cacher service.Cacher
 }
 
 // New to create new malscraper with config.
@@ -49,16 +50,19 @@ func NewDefault() (*Malscraper, error) {
 		CleanImageURL: true,
 		CleanVideoURL: true,
 		LogColor:      true,
+		LogLevel:      LevelDefault,
 	})
 }
 
 // NewNoCache to create new malscraper without caching.
 func NewNoCache() (*Malscraper, error) {
+	c, _ := nocache.New()
 	return New(Config{
-		Cacher:        internal.NewNoCacher(),
+		Cacher:        c,
 		CleanImageURL: true,
 		CleanVideoURL: true,
 		LogColor:      true,
+		LogLevel:      LevelDefault,
 	})
 }
 

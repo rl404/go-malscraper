@@ -3,13 +3,14 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
 // GetArticle to get featured article detail information.
 func (c *Cacher) GetArticle(id int) (data *model.Article, code int, err error) {
 	// Get from cache.
-	key := getKey(keyArticle, id)
+	key := internal.GetKey(internal.KeyArticle, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -28,7 +29,7 @@ func (c *Cacher) GetArticle(id int) (data *model.Article, code int, err error) {
 // GetArticles to get featured article list.
 func (c *Cacher) GetArticles(page int, tag string) (data []model.ArticleItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyArticleList, page, tag)
+	key := internal.GetKey(internal.KeyArticleList, page, tag)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -47,7 +48,7 @@ func (c *Cacher) GetArticles(page int, tag string) (data []model.ArticleItem, co
 // GetArticleTag to get featured article tag list.
 func (c *Cacher) GetArticleTag() (data []model.ArticleTagItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyArticleTag)
+	key := internal.GetKey(internal.KeyArticleTag)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

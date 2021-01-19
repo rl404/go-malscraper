@@ -3,13 +3,14 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
 // GetManga to get manga from cache.
 func (c *Cacher) GetManga(id int) (data *model.Manga, code int, err error) {
 	// Get from cache.
-	key := getKey(keyManga, id)
+	key := internal.GetKey(internal.KeyManga, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -28,7 +29,7 @@ func (c *Cacher) GetManga(id int) (data *model.Manga, code int, err error) {
 // GetMangaReview to get manga review list.
 func (c *Cacher) GetMangaReview(id int, page int) (data []model.Review, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaReview, id, page)
+	key := internal.GetKey(internal.KeyMangaReview, id, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -47,7 +48,7 @@ func (c *Cacher) GetMangaReview(id int, page int) (data []model.Review, code int
 // GetMangaRecommendation to get manga recommendation list.
 func (c *Cacher) GetMangaRecommendation(id int) (data []model.Recommendation, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaRecommendation, id)
+	key := internal.GetKey(internal.KeyMangaRecommendation, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -66,7 +67,7 @@ func (c *Cacher) GetMangaRecommendation(id int) (data []model.Recommendation, co
 // GetMangaStats to get manga stats list.
 func (c *Cacher) GetMangaStats(id int) (data *model.Stats, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaStats, id)
+	key := internal.GetKey(internal.KeyMangaStats, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -85,7 +86,7 @@ func (c *Cacher) GetMangaStats(id int) (data *model.Stats, code int, err error) 
 // GetMangaCharacter to get manga character list.
 func (c *Cacher) GetMangaCharacter(id int) (data []model.Role, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaCharacter, id)
+	key := internal.GetKey(internal.KeyMangaCharacter, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -104,7 +105,7 @@ func (c *Cacher) GetMangaCharacter(id int) (data []model.Role, code int, err err
 // GetMangaNews to get manga news list.
 func (c *Cacher) GetMangaNews(id int) (data []model.NewsItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaNews, id)
+	key := internal.GetKey(internal.KeyMangaNews, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -123,7 +124,7 @@ func (c *Cacher) GetMangaNews(id int) (data []model.NewsItem, code int, err erro
 // GetMangaArticle to get manga featured article list.
 func (c *Cacher) GetMangaArticle(id int) (data []model.ArticleItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaArticle, id)
+	key := internal.GetKey(internal.KeyMangaArticle, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -142,7 +143,7 @@ func (c *Cacher) GetMangaArticle(id int) (data []model.ArticleItem, code int, er
 // GetMangaClub to get manga club list.
 func (c *Cacher) GetMangaClub(id int) (data []model.ClubItem, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaClub, id)
+	key := internal.GetKey(internal.KeyMangaClub, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -161,7 +162,7 @@ func (c *Cacher) GetMangaClub(id int) (data []model.ClubItem, code int, err erro
 // GetMangaPicture to get manga picture list.
 func (c *Cacher) GetMangaPicture(id int) (data []string, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaPicture, id)
+	key := internal.GetKey(internal.KeyMangaPicture, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -180,7 +181,7 @@ func (c *Cacher) GetMangaPicture(id int) (data []string, code int, err error) {
 // GetMangaMoreInfo to get manga more info.
 func (c *Cacher) GetMangaMoreInfo(id int) (data string, code int, err error) {
 	// Get from cache.
-	key := getKey(keyMangaMoreInfo, id)
+	key := internal.GetKey(internal.KeyMangaMoreInfo, id)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

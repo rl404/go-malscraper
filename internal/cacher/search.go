@@ -3,6 +3,7 @@ package cacher
 import (
 	"net/http"
 
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
@@ -19,7 +20,7 @@ func (c *Cacher) SearchManga(query model.Query) (data []model.MangaSearch, code 
 // SearchCharacter to search character.
 func (c *Cacher) SearchCharacter(name string, page int) (data []model.CharacterSearch, code int, err error) {
 	// Get from cache.
-	key := getKey(keySearchCharacter, name, page)
+	key := internal.GetKey(internal.KeySearchCharacter, name, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -38,7 +39,7 @@ func (c *Cacher) SearchCharacter(name string, page int) (data []model.CharacterS
 // SearchPeople to search people.
 func (c *Cacher) SearchPeople(name string, page int) (data []model.PeopleSearch, code int, err error) {
 	// Get from cache.
-	key := getKey(keySearchPeople, name, page)
+	key := internal.GetKey(internal.KeySearchPeople, name, page)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -57,7 +58,7 @@ func (c *Cacher) SearchPeople(name string, page int) (data []model.PeopleSearch,
 // SearchClub to search club.
 func (c *Cacher) SearchClub(query model.ClubQuery) (data []model.ClubSearch, code int, err error) {
 	// Get from cache.
-	key := getKey(keySearchClub, query.Name, query.Page, query.Category, query.Sort)
+	key := internal.GetKey(internal.KeySearchClub, query.Name, query.Page, query.Category, query.Sort)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}
@@ -76,7 +77,7 @@ func (c *Cacher) SearchClub(query model.ClubQuery) (data []model.ClubSearch, cod
 // SearchUser to search user.
 func (c *Cacher) SearchUser(query model.UserQuery) (data []model.UserSearch, code int, err error) {
 	// Get from cache.
-	key := getKey(keySearchUser, query.Username, query.Page, query.Location, query.MinAge, query.MaxAge, query.Gender)
+	key := internal.GetKey(internal.KeySearchUser, query.Username, query.Page, query.Location, query.MinAge, query.MaxAge, query.Gender)
 	if c.cacher.Get(key, &data) == nil {
 		return data, http.StatusOK, nil
 	}

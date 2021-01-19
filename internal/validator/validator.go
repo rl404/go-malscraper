@@ -5,18 +5,19 @@ import (
 
 	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
+	"github.com/rl404/go-malscraper/service"
 )
 
 // Validator will intercept and validate request data
 // before processing the request.
 type Validator struct {
-	api    internal.API
-	cacher internal.Cacher
-	logger internal.Logger
+	api    service.API
+	cacher service.Cacher
+	logger service.Logger
 }
 
 // New to create new validator.
-func New(api internal.API, c internal.Cacher, l internal.Logger) internal.API {
+func New(api service.API, c service.Cacher, l service.Logger) service.API {
 	return &Validator{
 		api:    api,
 		cacher: c,
@@ -68,8 +69,8 @@ func (v *Validator) isAnimeGenreValid(id int) bool {
 	}
 
 	var genres []model.ItemCount
-	v.logger.Trace("[%s] checking valid anime genre...", getKey(keyGenres, AnimeType))
-	if v.cacher.Get(getKey(keyGenres, AnimeType), &genres) == nil {
+	v.logger.Trace("[%s] checking valid anime genre...", internal.GetKey(internal.KeyGenres, AnimeType))
+	if v.cacher.Get(internal.GetKey(internal.KeyGenres, AnimeType), &genres) == nil {
 		for _, g := range genres {
 			if g.ID == id {
 				return true
@@ -86,8 +87,8 @@ func (v *Validator) isMangaGenreValid(id int) bool {
 	}
 
 	var genres []model.ItemCount
-	v.logger.Trace("[%s] checking valid manga genre...", getKey(keyGenres, MangaType))
-	if v.cacher.Get(getKey(keyGenres, MangaType), &genres) == nil {
+	v.logger.Trace("[%s] checking valid manga genre...", internal.GetKey(internal.KeyGenres, MangaType))
+	if v.cacher.Get(internal.GetKey(internal.KeyGenres, MangaType), &genres) == nil {
 		for _, g := range genres {
 			if g.ID == id {
 				return true

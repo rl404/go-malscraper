@@ -3,11 +3,11 @@ package malscraper
 // Log level list.
 // Used for initiating logger.
 const (
-	LevelZero  = iota + 1 // no log
-	LevelError            // error, fatal
-	LevelInfo             // info, error, fatal
-	LevelDebug            // debug, info, warning, error, fatal
-	LevelTrace            // trace, debug, info, warning, error, fatal
+	LevelZero  = iota // no log
+	LevelError        // error, fatal
+	LevelInfo         // info, error, fatal
+	LevelDebug        // debug, info, warning, error, fatal
+	LevelTrace        // trace, debug, info, warning, error, fatal
 
 	// Default level.
 	LevelDefault = LevelError

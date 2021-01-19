@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/internal/parser/anime"
 	"github.com/rl404/go-malscraper/internal/parser/article"
 	"github.com/rl404/go-malscraper/internal/parser/character"
@@ -19,6 +18,7 @@ import (
 	"github.com/rl404/go-malscraper/internal/parser/search"
 	"github.com/rl404/go-malscraper/internal/parser/top"
 	"github.com/rl404/go-malscraper/internal/parser/user"
+	"github.com/rl404/go-malscraper/service"
 )
 
 // Requester is mockable http client.
@@ -42,12 +42,12 @@ type Parser struct {
 	top            top.Parser
 	user           user.Parser
 	search         search.Parser
-	logger         internal.Logger
+	logger         service.Logger
 	http           Requester
 }
 
 // New to create new parser.
-func New(cleanImg, cleanVid bool, l internal.Logger) internal.API {
+func New(cleanImg, cleanVid bool, l service.Logger) service.API {
 	return &Parser{
 		anime:          anime.New(cleanImg, cleanVid),
 		manga:          manga.New(cleanImg),

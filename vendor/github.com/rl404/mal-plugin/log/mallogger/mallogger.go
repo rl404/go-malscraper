@@ -10,7 +10,7 @@ import (
 
 const (
 	// LevelZero is no log level.
-	LevelZero = iota + 1
+	LevelZero = iota
 	// LevelHigh is log level showing Error and Fatal.
 	LevelHigh
 	// LevelNormal is log level showing Info, Error, and Fatal.
@@ -54,7 +54,7 @@ const (
 	BrightWhite   = "\033[97m"
 )
 
-var colors = []string{Blue, Magenta, Green, BrightYellow, BrightRed, Red}
+var colors = []string{Blue, Yellow, BrightBlue, BrightYellow, BrightRed, Red}
 
 // Log is log.
 type Log struct {
