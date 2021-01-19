@@ -14,7 +14,7 @@ github.com/davecgh/go-spew/spew
 github.com/grokify/html-strip-tags-go
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
-# github.com/rl404/mal-plugin v0.0.0-20210118083155-3d5f1732bfba
+# github.com/rl404/mal-plugin v0.0.0-20210119035738-beff682e63b3
 ## explicit
 github.com/rl404/mal-plugin/cache/bigcache
 github.com/rl404/mal-plugin/cache/nocache
