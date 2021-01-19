@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/rl404/go-malscraper/errors"
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
@@ -14,7 +15,7 @@ func (v *Validator) GetManga(id int) (*model.Manga, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -38,7 +39,7 @@ func (v *Validator) GetMangaReview(id int, page int) ([]model.Review, int, error
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -59,7 +60,7 @@ func (v *Validator) GetMangaRecommendation(id int) ([]model.Recommendation, int,
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -80,7 +81,7 @@ func (v *Validator) GetMangaStats(id int) (*model.Stats, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -101,7 +102,7 @@ func (v *Validator) GetMangaCharacter(id int) ([]model.Role, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -122,7 +123,7 @@ func (v *Validator) GetMangaNews(id int) ([]model.NewsItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -143,7 +144,7 @@ func (v *Validator) GetMangaArticle(id int) ([]model.ArticleItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -164,7 +165,7 @@ func (v *Validator) GetMangaClub(id int) ([]model.ClubItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -185,7 +186,7 @@ func (v *Validator) GetMangaPicture(id int) ([]string, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -206,7 +207,7 @@ func (v *Validator) GetMangaMoreInfo(id int) (string, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyManga, id)
+	key := internal.GetKey(internal.KeyEmptyManga, id)
 	if v.isEmptyID(key) {
 		return "", http.StatusNotFound, errors.ErrNot200
 	}

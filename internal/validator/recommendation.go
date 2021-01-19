@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/rl404/go-malscraper/errors"
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
@@ -15,10 +16,10 @@ func (v *Validator) GetRecommendation(t string, id1, id2 int) (*model.Recommenda
 	if id1 <= 0 || id2 <= 0 {
 		return nil, http.StatusBadRequest, errors.ErrInvalidID
 	}
-	if t == AnimeType && (v.isEmptyID(getKey(keyEmptyAnime, id1)) || v.isEmptyID(getKey(keyEmptyAnime, id2))) {
+	if t == AnimeType && (v.isEmptyID(internal.GetKey(internal.KeyEmptyAnime, id1)) || v.isEmptyID(internal.GetKey(internal.KeyEmptyAnime, id2))) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
-	if t == MangaType && (v.isEmptyID(getKey(keyEmptyManga, id1)) || v.isEmptyID(getKey(keyEmptyManga, id2))) {
+	if t == MangaType && (v.isEmptyID(internal.GetKey(internal.KeyEmptyManga, id1)) || v.isEmptyID(internal.GetKey(internal.KeyEmptyManga, id2))) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
 	return v.api.GetRecommendation(t, id1, id2)

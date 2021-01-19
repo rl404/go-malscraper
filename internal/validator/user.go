@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/rl404/go-malscraper/errors"
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 	"github.com/rl404/go-malscraper/pkg/utils"
 )
@@ -15,7 +16,7 @@ func (v *Validator) GetUser(username string) (*model.User, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, username)
+	key := internal.GetKey(internal.KeyEmptyUser, username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -36,7 +37,7 @@ func (v *Validator) GetUserStats(username string) (*model.UserStats, int, error)
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, username)
+	key := internal.GetKey(internal.KeyEmptyUser, username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -57,7 +58,7 @@ func (v *Validator) GetUserFavorite(username string) (*model.UserFavorite, int, 
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, username)
+	key := internal.GetKey(internal.KeyEmptyUser, username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -81,7 +82,7 @@ func (v *Validator) GetUserFriend(username string, page int) ([]model.UserFriend
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, username)
+	key := internal.GetKey(internal.KeyEmptyUser, username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -105,7 +106,7 @@ func (v *Validator) GetUserHistory(username string, t string) ([]model.UserHisto
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, username)
+	key := internal.GetKey(internal.KeyEmptyUser, username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -129,7 +130,7 @@ func (v *Validator) GetUserReview(username string, page int) ([]model.Review, in
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, username)
+	key := internal.GetKey(internal.KeyEmptyUser, username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -153,7 +154,7 @@ func (v *Validator) GetUserRecommendation(username string, page int) ([]model.Re
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, username)
+	key := internal.GetKey(internal.KeyEmptyUser, username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -174,7 +175,7 @@ func (v *Validator) GetUserClub(username string) ([]model.Item, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, username)
+	key := internal.GetKey(internal.KeyEmptyUser, username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -207,7 +208,7 @@ func (v *Validator) GetUserAnime(query model.UserListQuery) ([]model.UserAnime, 
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, query.Username)
+	key := internal.GetKey(internal.KeyEmptyUser, query.Username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -240,7 +241,7 @@ func (v *Validator) GetUserManga(query model.UserListQuery) ([]model.UserManga, 
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyUser, query.Username)
+	key := internal.GetKey(internal.KeyEmptyUser, query.Username)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}

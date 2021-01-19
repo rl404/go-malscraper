@@ -51,8 +51,8 @@ func (v *Validator) isArticleTagValid(tag string) bool {
 	}
 
 	var tags []model.ArticleTagItem
-	v.logger.Trace("[%s] checking valid article tag...", keyArticleTag)
-	if v.cacher.Get(keyArticleTag, &tags) == nil {
+	v.logger.Trace("[%s] checking valid article tag...", internal.KeyArticleTag)
+	if v.cacher.Get(internal.KeyArticleTag, &tags) == nil {
 		for _, t := range tags {
 			if t.Tag == tag {
 				return true
@@ -105,8 +105,8 @@ func (v *Validator) isNewsTagValid(tag string) bool {
 	}
 
 	var tags model.NewsTag
-	v.logger.Trace("[%s] checking valid news tag...", keyNewsTag)
-	if v.cacher.Get(keyNewsTag, &tags) == nil {
+	v.logger.Trace("[%s] checking valid news tag...", internal.KeyNewsTag)
+	if v.cacher.Get(internal.KeyNewsTag, &tags) == nil {
 		for _, t := range tags.Anime {
 			if t.Tag == tag {
 				return true
@@ -148,7 +148,8 @@ func (v *Validator) isProducerValid(id int) bool {
 	}
 
 	var producers []model.ItemCount
-	if v.cacher.Get(keyProducers, &producers) == nil {
+	v.logger.Trace("[%s] checking valid producer...", internal.KeyProducers)
+	if v.cacher.Get(internal.KeyProducers, &producers) == nil {
 		for _, p := range producers {
 			if p.ID == id {
 				return true
@@ -165,7 +166,8 @@ func (v *Validator) isMagazineValid(id int) bool {
 	}
 
 	var magazines []model.ItemCount
-	if v.cacher.Get(keyMagazines, &magazines) == nil {
+	v.logger.Trace("[%s] checking valid magazine...", internal.KeyMagazines)
+	if v.cacher.Get(internal.KeyMagazines, &magazines) == nil {
 		for _, m := range magazines {
 			if m.ID == id {
 				return true

@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/rl404/go-malscraper/errors"
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
@@ -14,7 +15,7 @@ func (v *Validator) GetAnime(id int) (*model.Anime, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -35,7 +36,7 @@ func (v *Validator) GetAnimeCharacter(id int) ([]model.CharacterItem, int, error
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -56,7 +57,7 @@ func (v *Validator) GetAnimeStaff(id int) ([]model.Role, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -80,7 +81,7 @@ func (v *Validator) GetAnimeVideo(id int, page int) (*model.Video, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -104,7 +105,7 @@ func (v *Validator) GetAnimeEpisode(id int, page int) ([]model.Episode, int, err
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -125,7 +126,7 @@ func (v *Validator) GetAnimeStats(id int) (*model.Stats, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -149,7 +150,7 @@ func (v *Validator) GetAnimeReview(id int, page int) ([]model.Review, int, error
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -170,7 +171,7 @@ func (v *Validator) GetAnimeRecommendation(id int) ([]model.Recommendation, int,
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -191,7 +192,7 @@ func (v *Validator) GetAnimeNews(id int) ([]model.NewsItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -212,7 +213,7 @@ func (v *Validator) GetAnimeArticle(id int) ([]model.ArticleItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -233,7 +234,7 @@ func (v *Validator) GetAnimeClub(id int) ([]model.ClubItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -254,7 +255,7 @@ func (v *Validator) GetAnimePicture(id int) ([]string, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -275,7 +276,7 @@ func (v *Validator) GetAnimeMoreInfo(id int) (string, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyAnime, id)
+	key := internal.GetKey(internal.KeyEmptyAnime, id)
 	if v.isEmptyID(key) {
 		return "", http.StatusNotFound, errors.ErrNot200
 	}

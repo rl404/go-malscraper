@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/rl404/go-malscraper/errors"
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
@@ -22,7 +23,7 @@ func (v *Validator) GetClub(id int) (*model.Club, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyClub, id)
+	key := internal.GetKey(internal.KeyEmptyClub, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -46,7 +47,7 @@ func (v *Validator) GetClubMember(id int, page int) ([]model.ClubMember, int, er
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyClub, id)
+	key := internal.GetKey(internal.KeyEmptyClub, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -67,7 +68,7 @@ func (v *Validator) GetClubPicture(id int) ([]string, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyClub, id)
+	key := internal.GetKey(internal.KeyEmptyClub, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -88,7 +89,7 @@ func (v *Validator) GetClubRelated(id int) (*model.ClubRelated, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyClub, id)
+	key := internal.GetKey(internal.KeyEmptyClub, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}

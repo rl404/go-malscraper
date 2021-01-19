@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/rl404/go-malscraper/errors"
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
@@ -14,7 +15,7 @@ func (v *Validator) GetCharacter(id int) (*model.Character, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyChar, id)
+	key := internal.GetKey(internal.KeyEmptyChar, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -35,7 +36,7 @@ func (v *Validator) GetCharacterArticle(id int) ([]model.ArticleItem, int, error
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyChar, id)
+	key := internal.GetKey(internal.KeyEmptyChar, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -59,7 +60,7 @@ func (v *Validator) GetCharacterOgraphy(t string, id int) ([]model.Role, int, er
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyChar, id)
+	key := internal.GetKey(internal.KeyEmptyChar, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -80,7 +81,7 @@ func (v *Validator) GetCharacterPicture(id int) ([]string, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyChar, id)
+	key := internal.GetKey(internal.KeyEmptyChar, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -101,7 +102,7 @@ func (v *Validator) GetCharacterClub(id int) ([]model.ClubItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyChar, id)
+	key := internal.GetKey(internal.KeyEmptyChar, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}

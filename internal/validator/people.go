@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/rl404/go-malscraper/errors"
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
@@ -14,7 +15,7 @@ func (v *Validator) GetPeople(id int) (*model.People, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyPeople, id)
+	key := internal.GetKey(internal.KeyEmptyPeople, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -35,7 +36,7 @@ func (v *Validator) GetPeopleCharacter(id int) ([]model.PeopleCharacter, int, er
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyPeople, id)
+	key := internal.GetKey(internal.KeyEmptyPeople, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -56,7 +57,7 @@ func (v *Validator) GetPeopleStaff(id int) ([]model.Role, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyPeople, id)
+	key := internal.GetKey(internal.KeyEmptyPeople, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -77,7 +78,7 @@ func (v *Validator) GetPeopleManga(id int) ([]model.Role, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyPeople, id)
+	key := internal.GetKey(internal.KeyEmptyPeople, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -98,7 +99,7 @@ func (v *Validator) GetPeopleNews(id int) ([]model.NewsItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyPeople, id)
+	key := internal.GetKey(internal.KeyEmptyPeople, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -119,7 +120,7 @@ func (v *Validator) GetPeopleArticle(id int) ([]model.ArticleItem, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyPeople, id)
+	key := internal.GetKey(internal.KeyEmptyPeople, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
@@ -140,7 +141,7 @@ func (v *Validator) GetPeoplePicture(id int) ([]string, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyPeople, id)
+	key := internal.GetKey(internal.KeyEmptyPeople, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}

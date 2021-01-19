@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/rl404/go-malscraper/errors"
+	"github.com/rl404/go-malscraper/internal"
 	"github.com/rl404/go-malscraper/model"
 )
 
@@ -14,7 +15,7 @@ func (v *Validator) GetReview(id int) (*model.Review, int, error) {
 	}
 
 	// Check empty id.
-	key := getKey(keyEmptyReview, id)
+	key := internal.GetKey(internal.KeyEmptyReview, id)
 	if v.isEmptyID(key) {
 		return nil, http.StatusNotFound, errors.ErrNot200
 	}
