@@ -28,13 +28,10 @@ func (v *Validator) SearchAnime(query model.Query) ([]model.AnimeSearch, int, er
 	if !utils.InArrayInt(animeStatuses, query.Status) {
 		return nil, http.StatusBadRequest, errors.ErrInvalidStatus
 	}
-	if !v.isProducerValid(query.ProducerID) {
+	if query.ProducerID != 0 && !v.isProducerValid(query.ProducerID) {
 		return nil, http.StatusBadRequest, errors.ErrInvalidProducer
 	}
 	for _, g := range query.GenreIDs {
-		if g <= 0 {
-			return nil, http.StatusBadRequest, errors.ErrInvalidGenre
-		}
 		if !v.isAnimeGenreValid(g) {
 			return nil, http.StatusBadRequest, errors.ErrInvalidGenre
 		}
@@ -68,13 +65,10 @@ func (v *Validator) SearchManga(query model.Query) ([]model.MangaSearch, int, er
 	if !utils.InArrayInt(mangaStatuses, query.Status) {
 		return nil, http.StatusBadRequest, errors.ErrInvalidStatus
 	}
-	if !v.isMagazineValid(query.MagazineID) {
+	if query.MagazineID != 0 && !v.isMagazineValid(query.MagazineID) {
 		return nil, http.StatusBadRequest, errors.ErrInvalidMagazine
 	}
 	for _, g := range query.GenreIDs {
-		if g <= 0 {
-			return nil, http.StatusBadRequest, errors.ErrInvalidGenre
-		}
 		if !v.isMangaGenreValid(g) {
 			return nil, http.StatusBadRequest, errors.ErrInvalidGenre
 		}

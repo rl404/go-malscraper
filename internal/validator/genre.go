@@ -17,9 +17,6 @@ func (v *Validator) GetGenres(t string) ([]model.ItemCount, int, error) {
 
 // GetAnimeWithGenre to get anime list with specific genre.
 func (v *Validator) GetAnimeWithGenre(id int, page int) ([]model.AnimeItem, int, error) {
-	if id <= 0 {
-		return nil, http.StatusBadRequest, errors.ErrInvalidID
-	}
 	if page <= 0 {
 		return nil, http.StatusBadRequest, errors.ErrInvalidPage
 	}
@@ -31,9 +28,6 @@ func (v *Validator) GetAnimeWithGenre(id int, page int) ([]model.AnimeItem, int,
 
 // GetMangaWithGenre to get manga list with specific genre.
 func (v *Validator) GetMangaWithGenre(id int, page int) ([]model.MangaItem, int, error) {
-	if id <= 0 {
-		return nil, http.StatusBadRequest, errors.ErrInvalidID
-	}
 	if page <= 0 {
 		return nil, http.StatusBadRequest, errors.ErrInvalidPage
 	}
