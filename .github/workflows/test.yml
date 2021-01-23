@@ -20,9 +20,9 @@ jobs:
     - name: Run test
       run: go test -failfast -parallel 1 -cover -mod vendor -covermode=count -coverprofile=coverage.out ./...
     - name: Convert coverage.out to coverage.lcov
-      uses: jandelgado/gcov2lcov-action@v1
+      uses: jandelgado/gcov2lcov-action@v1.0.8
     - name: Coveralls
-      uses: coverallsapp/github-action@v1
+      uses: coverallsapp/github-action@v1.1.2
       with:
           github-token: ${{ secrets.KEY }}
           path-to-lcov: coverage.lcov
