@@ -120,4 +120,3 @@ func TestGetMangaWithGenre(t *testing.T) {
 		assert.NoError(t, err)
 	})
 }
-

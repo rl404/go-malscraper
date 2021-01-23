@@ -27,7 +27,7 @@ func (m *Malscraper) GetRecommendationAnime(id1, id2 int) (*model.Recommendation
 //
 // Example: https://myanimelist.net/recommendations/manga/1-21.
 func (m *Malscraper) GetRecommendationManga(id1, id2 int) (*model.Recommendation, int, error) {
-	return m.GetRecommendation(AnimeType, id1, id2)
+	return m.GetRecommendation(MangaType, id1, id2)
 }
 
 // GetRecommendations to get anime/manga recommendation list.

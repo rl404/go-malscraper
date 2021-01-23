@@ -136,7 +136,7 @@ func TestGetCharacterOgraphy(t *testing.T) {
 
 	t.Run("ok", func(t *testing.T) {
 		mockCacher.On("Get", "mal:empty:character:1", &empty).Return(errDummy).Once()
-		mockAPI.On("GetCharacterOgraphy", "anime",1).Return([]model.Role{}, http.StatusOK, nil).Once()
+		mockAPI.On("GetCharacterOgraphy", "anime", 1).Return([]model.Role{}, http.StatusOK, nil).Once()
 		mockCacher.On("Set", "mal:empty:character:1", true).Return(nil).Once()
 		v := New(mockAPI, mockCacher, mockLogger)
 

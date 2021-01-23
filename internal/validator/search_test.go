@@ -329,10 +329,10 @@ func TestSearchClub(t *testing.T) {
 	})
 
 	t.Run("ok", func(t *testing.T) {
-		mockAPI.On("SearchClub", model.ClubQuery{Name:"naruto", Page:1}).Return([]model.ClubSearch{}, http.StatusOK, nil).Once()
+		mockAPI.On("SearchClub", model.ClubQuery{Name: "naruto", Page: 1}).Return([]model.ClubSearch{}, http.StatusOK, nil).Once()
 		v := New(mockAPI, mockCacher, mockLogger)
 
-		d, code, err := v.SearchClub(model.ClubQuery{Name:"naruto"})
+		d, code, err := v.SearchClub(model.ClubQuery{Name: "naruto"})
 		assert.NotNil(t, d)
 		assert.Equal(t, http.StatusOK, code)
 		assert.NoError(t, err)
@@ -355,7 +355,7 @@ func TestSearchUser(t *testing.T) {
 
 	t.Run("invalid-page", func(t *testing.T) {
 		v := New(mockAPI, mockCacher, mockLogger)
-		d, code, err := v.SearchUser(model.UserQuery{Username: "rl404", Page:-1})
+		d, code, err := v.SearchUser(model.UserQuery{Username: "rl404", Page: -1})
 		assert.Nil(t, d)
 		assert.Equal(t, http.StatusBadRequest, code)
 		assert.Error(t, err)
@@ -364,7 +364,7 @@ func TestSearchUser(t *testing.T) {
 
 	t.Run("invalid-age", func(t *testing.T) {
 		v := New(mockAPI, mockCacher, mockLogger)
-		d, code, err := v.SearchUser(model.UserQuery{Username: "rl404", MinAge:-1})
+		d, code, err := v.SearchUser(model.UserQuery{Username: "rl404", MinAge: -1})
 		assert.Nil(t, d)
 		assert.Equal(t, http.StatusBadRequest, code)
 		assert.Error(t, err)
@@ -373,7 +373,7 @@ func TestSearchUser(t *testing.T) {
 
 	t.Run("invalid-gender", func(t *testing.T) {
 		v := New(mockAPI, mockCacher, mockLogger)
-		d, code, err := v.SearchUser(model.UserQuery{Username: "rl404", Gender:-1})
+		d, code, err := v.SearchUser(model.UserQuery{Username: "rl404", Gender: -1})
 		assert.Nil(t, d)
 		assert.Equal(t, http.StatusBadRequest, code)
 		assert.Error(t, err)
@@ -381,10 +381,10 @@ func TestSearchUser(t *testing.T) {
 	})
 
 	t.Run("ok", func(t *testing.T) {
-		mockAPI.On("SearchUser", model.UserQuery{Username:"rl404", Page:1}).Return([]model.UserSearch{}, http.StatusOK, nil).Once()
+		mockAPI.On("SearchUser", model.UserQuery{Username: "rl404", Page: 1}).Return([]model.UserSearch{}, http.StatusOK, nil).Once()
 		v := New(mockAPI, mockCacher, mockLogger)
 
-		d, code, err := v.SearchUser(model.UserQuery{Username:"rl404"})
+		d, code, err := v.SearchUser(model.UserQuery{Username: "rl404"})
 		assert.NotNil(t, d)
 		assert.Equal(t, http.StatusOK, code)
 		assert.NoError(t, err)

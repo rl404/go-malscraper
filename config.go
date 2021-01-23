@@ -33,6 +33,9 @@ type Config struct {
 	LogColor bool
 }
 
+// Testable function.
+var createCache = bigcache.New
+
 func (c *Config) init() (err error) {
 	if c.Logger == nil {
 		c.Logger = mallogger.New(c.LogLevel, c.LogColor)
@@ -42,7 +45,7 @@ func (c *Config) init() (err error) {
 		if c.CacheTime <= 0 {
 			c.CacheTime = 24 * time.Hour
 		}
-		c.Cacher, err = bigcache.New(c.CacheTime)
+		c.Cacher, err = createCache(c.CacheTime)
 		if err != nil {
 			c.Logger.Error("failed initiating cache: %s", err.Error())
 			return errors.ErrInitCache

@@ -38,7 +38,7 @@ func TestGetSeason(t *testing.T) {
 		mockAPI.On("GetSeason", "winter", 2019).Return([]model.AnimeItem{}, http.StatusOK, nil).Once()
 		v := New(mockAPI, mockCacher, mockLogger)
 
-		d, code, err := v.GetSeason("winter",2019)
+		d, code, err := v.GetSeason("winter", 2019)
 		assert.NotNil(t, d)
 		assert.Equal(t, http.StatusOK, code)
 		assert.NoError(t, err)

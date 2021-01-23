@@ -168,7 +168,7 @@ type UserRawManga struct {
 	ReadVolume     int         `json:"num_read_volumes"`
 	MangaTitle     interface{} `json:"manga_title"`
 	MangaChapter   int         `json:"manga_num_chapters"`
-	MangaVolume    int         `json:"manga_num_volume"`
+	MangaVolume    int         `json:"manga_num_volumes"`
 	MangaStatus    int         `json:"manga_publishing_status"`
 	MangaID        int         `json:"manga_id"`
 	MangaMagazine  []Item      `json:"manga_magazines"`
