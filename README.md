@@ -1,5 +1,11 @@
 # Go Malscraper
 
+![Github Test](https://github.com/rl404/go-malscraper/workflows/test/badge.svg)
+[![Coverage](https://coveralls.io/repos/github/rl404/go-malscraper/badge.svg)](https://coveralls.io/github/rl404/go-malscraper)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rl404/go-malscraper)](https://goreportcard.com/report/github.com/rl404/go-malscraper)
+![License: MIT](https://img.shields.io/github/license/rl404/go-malscraper.svg)
+[![Go Reference](https://pkg.go.dev/badge/github.com/rl404/go-malscraper.svg)](https://pkg.go.dev/github.com/rl404/go-malscraper)
+
 _go-malscraper_ is just another unofficial API which scraping/parsing [MyAnimeList](https://myanimelist.net/) website to a useful and easy-to-use data by using [Go](https://golang.org/).
 
 Well, it is created to help people get MyAnimeList data without relying on MyAnimeList since they limited/disabled/closed their API. It's working as long as the web is up and the UI design stays the same so it can get the page sources and parse them.
