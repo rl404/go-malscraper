@@ -82,7 +82,7 @@ m, err := mal.New(mal.Config{
 })
 ```
 
-*For more detail config and usage, please go to the [documentation](https://pkg.go.dev/github.com/rl404/go-malscraper@master).*
+*For more detail config and usage, please go to the [documentation](https://pkg.go.dev/github.com/rl404/go-malscraper).*
 
 ## Disclamer
 
