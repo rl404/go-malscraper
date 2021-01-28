@@ -16,7 +16,7 @@ func TestGetClubs(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotZero(t, len(d))
-	emptyImg, emptySum, emptyMem := true, true, true
+	emptyImg, emptySum, emptyMem, emptyCreator := true, true, true, true
 	for _, p := range d {
 		assert.NotZero(t, p.ID)
 		assert.NotEmpty(t, p.Name)
@@ -26,7 +26,9 @@ func TestGetClubs(t *testing.T) {
 		if p.Summary != "" {
 			emptySum = false
 		}
-		assert.NotEmpty(t, p.Creator)
+		if p.Creator != "" {
+			emptyCreator = false
+		}
 		if p.Member > 0 {
 			emptyMem = false
 		}
@@ -34,6 +36,7 @@ func TestGetClubs(t *testing.T) {
 	assert.False(t, emptyImg)
 	assert.False(t, emptySum)
 	assert.False(t, emptyMem)
+	assert.False(t, emptyCreator)
 	time.Sleep(sleepDur)
 }
 
