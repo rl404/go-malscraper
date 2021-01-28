@@ -1,6 +1,6 @@
-# Go Malscraper
+# Go-Malscraper
 
-![Github Test](https://github.com/rl404/go-malscraper/workflows/test/badge.svg)
+![Github Test](https://github.com/rl404/go-malscraper/workflows/cron/badge.svg)
 [![Coverage](https://coveralls.io/repos/github/rl404/go-malscraper/badge.svg)](https://coveralls.io/github/rl404/go-malscraper)
 [![Go Report Card](https://goreportcard.com/badge/github.com/rl404/go-malscraper)](https://goreportcard.com/report/github.com/rl404/go-malscraper)
 ![License: MIT](https://img.shields.io/github/license/rl404/go-malscraper.svg)
@@ -11,6 +11,8 @@ _go-malscraper_ is just another unofficial API which scraping/parsing [MyAnimeLi
 Well, it is created to help people get MyAnimeList data without relying on MyAnimeList since they limited/disabled/closed their API. It's working as long as the web is up and the UI design stays the same so it can get the page sources and parse them.
 
 _go-malscraper_ is using [PuerkitoBio's](https://github.com/PuerkitoBio/goquery) HTML DOM parser and inspired by [Jikan's](https://github.com/jikan-me/jikan) API library and my PHP [Mal-Scraper](https://github.com/rl404/MAL-Scraper) library.
+
+Looking for REST API one? come [here](https://github.com/rl404/mal-api).
 
 ## Features
 
@@ -94,4 +96,4 @@ All data (including anime, manga, people, etc) and MyAnimeList logos belong to t
 
 MIT License
 
-Copyright (c) 2020 Axel
+Copyright (c) 2021 Axel

@@ -56,6 +56,12 @@
 //  	Fatal(format string, args ...interface{})
 //  }
 //
+// And use it when initiating malscraper.
+//
+//  m, err := malscraper.New(malscraper.Config{
+//  	Logger: yourLogger,
+//  })
+//
 // Params
 //
 // Some methods require specific value for the parameter. So, it is recommended to
