@@ -12,12 +12,11 @@ github.com/davecgh/go-spew/spew
 # github.com/grokify/html-strip-tags-go v0.0.1
 ## explicit
 github.com/grokify/html-strip-tags-go
-# github.com/kr/text v0.2.0
-## explicit
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
-# github.com/rl404/mal-plugin v0.1.1
+# github.com/rl404/mal-plugin v0.2.0
 ## explicit
+github.com/rl404/mal-plugin/cache
 github.com/rl404/mal-plugin/cache/bigcache
 github.com/rl404/mal-plugin/cache/nocache
 github.com/rl404/mal-plugin/log/mallogger
@@ -30,11 +29,7 @@ github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
 # golang.org/x/net v0.0.0-20210119194325-5f4716e94777
-## explicit
 golang.org/x/net/html
 golang.org/x/net/html/atom
-# gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
-## explicit
 # gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
-## explicit
 gopkg.in/yaml.v3
