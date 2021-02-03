@@ -230,3 +230,45 @@ func TestGetCharacterClub(t *testing.T) {
 		assert.NoError(t, err)
 	})
 }
+
+func TestGetCharacterVA(t *testing.T) {
+	var empty bool
+	mockAPI := new(mocks.API)
+	mockCacher := new(mocks.Cacher)
+	mockLogger := mallogger.New(0, false)
+
+	t.Run("invalid-id", func(t *testing.T) {
+		v := New(mockAPI, mockCacher, mockLogger)
+		d, code, err := v.GetCharacterVA(0)
+		assert.Nil(t, d)
+		assert.Equal(t, http.StatusBadRequest, code)
+		assert.Error(t, err)
+		assert.EqualError(t, err, errors.ErrInvalidID.Error())
+	})
+
+	t.Run("empty-id", func(t *testing.T) {
+		mockCacher.On("Get", "mal:empty:character:1", &empty).Run(func(args mock.Arguments) {
+			tmp := args.Get(1).(*bool)
+			*tmp = true
+		}).Return(nil).Once()
+		v := New(mockAPI, mockCacher, mockLogger)
+
+		d, code, err := v.GetCharacterVA(1)
+		assert.Nil(t, d)
+		assert.Equal(t, http.StatusNotFound, code)
+		assert.Error(t, err)
+		assert.EqualError(t, err, errors.ErrNot200.Error())
+	})
+
+	t.Run("ok", func(t *testing.T) {
+		mockCacher.On("Get", "mal:empty:character:1", &empty).Return(errDummy).Once()
+		mockAPI.On("GetCharacterVA", 1).Return([]model.Role{}, http.StatusOK, nil).Once()
+		mockCacher.On("Set", "mal:empty:character:1", true).Return(nil).Once()
+		v := New(mockAPI, mockCacher, mockLogger)
+
+		d, code, err := v.GetCharacterVA(1)
+		assert.NotNil(t, d)
+		assert.Equal(t, http.StatusOK, code)
+		assert.NoError(t, err)
+	})
+}

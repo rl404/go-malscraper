@@ -117,3 +117,23 @@ func TestGetCharacterClub(t *testing.T) {
 	}
 	time.Sleep(sleepDur)
 }
+
+func TestGetCharacterVA(t *testing.T) {
+	d, code, err := mal.GetCharacterVA(5432)
+	require.NotNil(t, d)
+	require.Equal(t, code, http.StatusOK)
+	require.NoError(t, err)
+
+	assert.NotZero(t, len(d))
+	emptyImg := true
+	for _, f := range d {
+		assert.NotZero(t, f.ID)
+		assert.NotEmpty(t, f.Name)
+		if f.Image != "" {
+			emptyImg = false
+		}
+		assert.NotEmpty(t, f.Role)
+	}
+	assert.False(t, emptyImg)
+	time.Sleep(sleepDur)
+}

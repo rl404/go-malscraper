@@ -1,6 +1,7 @@
 package character
 
 import (
+	"html"
 	"regexp"
 	"strings"
 
@@ -15,7 +16,7 @@ type detail struct {
 	data     model.Character
 }
 
-// GetDetails to get anime details.
+// GetDetails to get character details.
 func (p *parser) GetDetails(a *goquery.Selection) *model.Character {
 	d := detail{area: a, cleanImg: p.cleanImg}
 
@@ -26,7 +27,7 @@ func (p *parser) GetDetails(a *goquery.Selection) *model.Character {
 	d.setID()
 	d.setImage()
 	d.setNickname()
-	d.setKJapaneseName()
+	d.setJapaneseName()
 	d.setName()
 	d.setFavorite()
 	d.setAbout()
@@ -74,7 +75,7 @@ func (d *detail) setName() {
 	d.data.Name = strings.TrimSpace(area.Text())
 }
 
-func (d *detail) setKJapaneseName() {
+func (d *detail) setJapaneseName() {
 	area := d.area.Find("#content table tr td").Next()
 	area = area.Find("h2.normal_header small")
 
@@ -104,5 +105,5 @@ func (d *detail) setAbout() {
 	aboutGoQuery.Find("h2.normal_header").Remove()
 	cleanAbout := strings.TrimSpace(aboutGoQuery.Text())
 	cleanAbout = strings.Replace(cleanAbout, "No biography written.", "", -1)
-	d.data.About = strings.TrimSpace(cleanAbout)
+	d.data.About = strings.TrimSpace(html.UnescapeString(cleanAbout))
 }

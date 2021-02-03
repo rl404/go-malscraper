@@ -101,3 +101,22 @@ func (c *Cacher) GetCharacterClub(id int) (data []model.ClubItem, code int, err 
 	_ = c.cacher.Set(key, data)
 	return data, http.StatusOK, nil
 }
+
+// GetCharacterVA to get character club list.
+func (c *Cacher) GetCharacterVA(id int) (data []model.Role, code int, err error) {
+	// Get from cache.
+	key := internal.GetKey(internal.KeyCharacterVA, id)
+	if c.cacher.Get(key, &data) == nil {
+		return data, http.StatusOK, nil
+	}
+
+	// Parse.
+	data, code, err = c.api.GetCharacterVA(id)
+	if err != nil {
+		return nil, code, err
+	}
+
+	// Save to cache. Won't return error.
+	_ = c.cacher.Set(key, data)
+	return data, http.StatusOK, nil
+}

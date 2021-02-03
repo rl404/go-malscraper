@@ -35,6 +35,7 @@ const (
 	KeyCharacterClub       = "mal:character-club"
 	KeyCharacterPicture    = "mal:character-picture"
 	KeyCharacterOgraphy    = "mal:character-ography"
+	KeyCharacterVA         = "mal:character-va"
 	KeyPeople              = "mal:people"
 	KeyPeopleNews          = "mal:people-news"
 	KeyPeopleArticle       = "mal:people-article"

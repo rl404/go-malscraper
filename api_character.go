@@ -57,3 +57,10 @@ func (m *Malscraper) GetCharacterPicture(id int) ([]string, int, error) {
 func (m *Malscraper) GetCharacterClub(id int) ([]model.ClubItem, int, error) {
 	return m.api.GetCharacterClub(id)
 }
+
+// GetCharacterVA to get character voice actor list.
+//
+// Example: https://myanimelist.net/character/1/Spike_Spiegel.
+func (m *Malscraper) GetCharacterVA(id int) ([]model.Role, int, error) {
+	return m.api.GetCharacterVA(id)
+}

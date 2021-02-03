@@ -39,6 +39,7 @@ type API interface {
 	GetCharacterArticle(id int) ([]model.ArticleItem, int, error)
 	GetCharacterPicture(id int) ([]string, int, error)
 	GetCharacterClub(id int) ([]model.ClubItem, int, error)
+	GetCharacterVA(id int) ([]model.Role, int, error)
 
 	// People.
 	GetPeople(id int) (*model.People, int, error)

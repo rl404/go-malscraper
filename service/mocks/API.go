@@ -670,6 +670,36 @@ func (_m *API) GetCharacterPicture(id int) ([]string, int, error) {
 	return r0, r1, r2
 }
 
+// GetCharacterVA provides a mock function with given fields: id
+func (_m *API) GetCharacterVA(id int) ([]model.Role, int, error) {
+	ret := _m.Called(id)
+
+	var r0 []model.Role
+	if rf, ok := ret.Get(0).(func(int) []model.Role); ok {
+		r0 = rf(id)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).([]model.Role)
+		}
+	}
+
+	var r1 int
+	if rf, ok := ret.Get(1).(func(int) int); ok {
+		r1 = rf(id)
+	} else {
+		r1 = ret.Get(1).(int)
+	}
+
+	var r2 error
+	if rf, ok := ret.Get(2).(func(int) error); ok {
+		r2 = rf(id)
+	} else {
+		r2 = ret.Error(2)
+	}
+
+	return r0, r1, r2
+}
+
 // GetClub provides a mock function with given fields: id
 func (_m *API) GetClub(id int) (*model.Club, int, error) {
 	ret := _m.Called(id)

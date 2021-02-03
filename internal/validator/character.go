@@ -115,3 +115,24 @@ func (v *Validator) GetCharacterClub(id int) ([]model.ClubItem, int, error) {
 
 	return data, code, err
 }
+
+// GetCharacterVA to get character voice actor list.
+func (v *Validator) GetCharacterVA(id int) ([]model.Role, int, error) {
+	if id <= 0 {
+		return nil, http.StatusBadRequest, errors.ErrInvalidID
+	}
+
+	// Check empty id.
+	key := internal.GetKey(internal.KeyEmptyChar, id)
+	if v.isEmptyID(key) {
+		return nil, http.StatusNotFound, errors.ErrNot200
+	}
+
+	// Parse.
+	data, code, err := v.api.GetCharacterVA(id)
+
+	// Save empty id.
+	v.saveEmptyID(code, key)
+
+	return data, code, err
+}

@@ -1,6 +1,7 @@
 package anime
 
 import (
+	"html"
 	"regexp"
 	"strings"
 
@@ -66,7 +67,7 @@ func (d *detail) getAltTitle(area *goquery.Selection, t string) string {
 	altTitle, _ := area.Html()
 	altTitle = r.FindString(altTitle)
 	altTitle = strings.Replace(altTitle, t+":</span>", "", -1)
-	return strings.TrimSpace(altTitle)
+	return strings.TrimSpace(html.UnescapeString(altTitle))
 }
 
 func (d *detail) setVideo() {

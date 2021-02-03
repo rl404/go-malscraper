@@ -68,3 +68,16 @@ func (p *Parser) GetCharacterClub(id int) ([]model.ClubItem, int, error) {
 	}
 	return d, http.StatusOK, nil
 }
+
+// GetCharacterVA to get character voice actor list.
+func (p *Parser) GetCharacterVA(id int) ([]model.Role, int, error) {
+	doc, code, err := p.getDoc(utils.BuildURL(malURL, "character", id), "#contentWrapper")
+	if err != nil {
+		return nil, code, err
+	}
+	d := p.character.GetVA(doc)
+	if d == nil {
+		return nil, http.StatusNotFound, errors.ErrInvalidID
+	}
+	return d, http.StatusOK, nil
+}

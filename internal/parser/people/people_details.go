@@ -1,6 +1,7 @@
 package people
 
 import (
+	"html"
 	"regexp"
 	"strings"
 
@@ -90,6 +91,9 @@ func (d *detail) getBiodata(t string) (string, []string) {
 		if len(splitName) == 0 {
 			return "", []string{}
 		}
+		for i := range splitName {
+			splitName[i] = html.UnescapeString(splitName[i])
+		}
 		return "", splitName
 	}
 
@@ -97,7 +101,7 @@ func (d *detail) getBiodata(t string) (string, []string) {
 		splitBio[1] = strings.Replace(splitBio[1], ",", "", -1)
 	}
 
-	return splitBio[1], []string{}
+	return html.UnescapeString(splitBio[1]), []string{}
 }
 
 func (d *detail) getBirthday() model.Date {
@@ -110,7 +114,7 @@ func (d *detail) getBioWeb() string {
 	area, _ := d.area.Find("#content table tr td").Html()
 
 	r := regexp.MustCompile(`(Website:<\/span> <a)[^<]*`)
-	bioRegex := r.FindString(area)
+	bioRegex := r.FindString(html.UnescapeString(area))
 
 	r = regexp.MustCompile(`".+"`)
 	bioRegex = r.FindString(bioRegex)
@@ -134,5 +138,5 @@ func (d *detail) getBioFavorite() int {
 }
 
 func (d *detail) setMore() {
-	d.data.More = d.area.Find("#content table tr td div[class^=people-informantion-more]").Text()
+	d.data.More = html.UnescapeString(d.area.Find("#content table tr td div[class^=people-informantion-more]").Text())
 }

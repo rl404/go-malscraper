@@ -1,6 +1,7 @@
 package manga
 
 import (
+	"html"
 	"regexp"
 	"strings"
 
@@ -61,7 +62,7 @@ func (d *detail) setAltTitle() {
 func (d *detail) getAltTitle(area *goquery.Selection, t string) string {
 	altTitle, _ := area.Html()
 	r := regexp.MustCompile(`(` + t + `:</span>)([^<]*)`)
-	altTitle = r.FindString(altTitle)
+	altTitle = r.FindString(html.UnescapeString(altTitle))
 	return strings.TrimSpace(strings.Replace(altTitle, t+":</span>", "", -1))
 }
 
