@@ -71,8 +71,12 @@ func (d *detail) setNickname() {
 func (d *detail) setName() {
 	area := d.area.Find("#content table tr td").Next()
 	area = area.Find("h2.normal_header[style^=height]")
+
+	r := regexp.MustCompile(`\s+`)
+	name := r.ReplaceAllString(area.Text(), " ")
+
 	area.Find("span").Remove()
-	d.data.Name = strings.TrimSpace(area.Text())
+	d.data.Name = strings.TrimSpace(name)
 }
 
 func (d *detail) setJapaneseName() {

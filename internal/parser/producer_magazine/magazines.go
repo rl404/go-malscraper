@@ -40,12 +40,12 @@ func (m *magazines) getID(area *goquery.Selection) int {
 }
 
 func (m *magazines) getName(area *goquery.Selection) string {
-	r := regexp.MustCompile(`\([0-9,]+\)`)
+	r := regexp.MustCompile(`\([0-9,-]+\)`)
 	return strings.TrimSpace(r.ReplaceAllString(area.Text(), ""))
 }
 
 func (m *magazines) getCount(area *goquery.Selection) int {
-	r := regexp.MustCompile(`\([0-9,]+\)`)
+	r := regexp.MustCompile(`\([0-9,-]+\)`)
 	count := r.FindString(area.Text())
 	return utils.StrToNum(count[1 : len(count)-1])
 }
