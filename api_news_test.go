@@ -56,12 +56,13 @@ func TestGetNews(t *testing.T) {
 
 func TestGetNewsList(t *testing.T) {
 	t.Run("no-tag-ok", func(t *testing.T) {
-		d, code, err := mal.GetNewsList(2, "")
+		d, code, err := mal.GetNewsList(1, "")
 		require.NotNil(t, d)
 		require.Equal(t, code, http.StatusOK)
 		require.NoError(t, err)
 
 		assert.NotZero(t, len(d))
+		emptyCmt := true
 		for _, n := range d {
 			assert.NotZero(t, n.ID)
 			assert.NotEmpty(t, n.Title)
@@ -70,17 +71,21 @@ func TestGetNewsList(t *testing.T) {
 			assert.NotZero(t, n.Date)
 			assert.NotEmpty(t, n.Username)
 			assert.NotZero(t, n.ForumID)
-			assert.NotZero(t, n.Comment)
+			if n.Comment > 0 {
+				emptyCmt = false
+			}
 		}
+		assert.False(t, emptyCmt)
 	})
 
 	t.Run("with-tag-ok", func(t *testing.T) {
-		d, code, err := mal.GetNewsList(2, "new_anime")
+		d, code, err := mal.GetNewsList(1, "new_anime")
 		require.NotNil(t, d)
 		require.Equal(t, code, http.StatusOK)
 		require.NoError(t, err)
 
 		assert.NotZero(t, len(d))
+		emptyCmt := true
 		for _, n := range d {
 			assert.NotZero(t, n.ID)
 			assert.NotEmpty(t, n.Title)
@@ -89,8 +94,11 @@ func TestGetNewsList(t *testing.T) {
 			assert.NotZero(t, n.Date)
 			assert.NotEmpty(t, n.Username)
 			assert.NotZero(t, n.ForumID)
-			assert.NotZero(t, n.Comment)
+			if n.Comment > 0 {
+				emptyCmt = false
+			}
 		}
+		assert.False(t, emptyCmt)
 	})
 	time.Sleep(sleepDur)
 }
