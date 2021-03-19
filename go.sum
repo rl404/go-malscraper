@@ -63,8 +63,8 @@ github.com/onsi/gomega v1.10.5/go.mod h1:gza4q3jKQJijlu05nKWRCW/GavJumGt8aNRxWg7
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/rl404/mal-plugin v0.3.3 h1:9CsPahOGFVpPFipiCgrwbQbvsCaDh5qwxFyKgGzH/bA=
-github.com/rl404/mal-plugin v0.3.3/go.mod h1:i+Svksj7yY35sqlNxys+eycAN/2zxFATbR5MqNNnlMo=
+github.com/rl404/mal-plugin v0.3.4 h1:S5X+TVvv6aNjyZsisJrd8eljpxd+6bG9X3ncriL/vY0=
+github.com/rl404/mal-plugin v0.3.4/go.mod h1:i+Svksj7yY35sqlNxys+eycAN/2zxFATbR5MqNNnlMo=
 github.com/streadway/amqp v1.0.0/go.mod h1:AZpEONHx3DKn8O/DFsRAY58/XVQiIPMTMB1SddzLXVw=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/objx v0.3.0 h1:NGXK3lHquSN08v5vWalVI/L8XU9hdzE/G6xsrze47As=
