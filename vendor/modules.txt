@@ -14,7 +14,7 @@ github.com/davecgh/go-spew/spew
 github.com/grokify/html-strip-tags-go
 # github.com/pmezard/go-difflib v1.0.0
 github.com/pmezard/go-difflib/difflib
-# github.com/rl404/mal-plugin v0.3.4
+# github.com/rl404/mal-plugin v0.3.5
 ## explicit
 github.com/rl404/mal-plugin/cache
 github.com/rl404/mal-plugin/cache/bigcache
@@ -28,7 +28,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# golang.org/x/net v0.0.0-20210226172049-e18ecbb05110
+# golang.org/x/net v0.0.0-20210316092652-d523dce5a7f4
 ## explicit
 golang.org/x/net/html
 golang.org/x/net/html/atom
