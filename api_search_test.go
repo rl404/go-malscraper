@@ -16,7 +16,7 @@ func TestSearchAnime(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotZero(t, len(d))
-	emptyEp, emptyScore, emptyRated := true, true, true
+	emptyEp, emptyScore, emptyRated, emptyMember := true, true, true, true
 	emptyY1, emptyM1, emptyD1, emptyY2, emptyM2, emptyD2 := true, true, true, true, true, true
 	for _, a := range d {
 		assert.NotZero(t, a.ID)
@@ -48,7 +48,9 @@ func TestSearchAnime(t *testing.T) {
 		if a.EndDate.Day > 0 {
 			emptyD2 = false
 		}
-		assert.NotZero(t, a.Member)
+		if a.Member > 0 {
+			emptyMember = false
+		}
 		if a.Rated != "" {
 			emptyRated = false
 		}
@@ -56,6 +58,7 @@ func TestSearchAnime(t *testing.T) {
 	assert.False(t, emptyEp)
 	assert.False(t, emptyScore)
 	assert.False(t, emptyRated)
+	assert.False(t, emptyMember)
 	assert.False(t, emptyY1)
 	assert.False(t, emptyM1)
 	assert.False(t, emptyD1)
@@ -72,7 +75,7 @@ func TestSearchManga(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotZero(t, len(d))
-	emptySum, emptyCh, emptyScore, emptyVol := true, true, true, true
+	emptySum, emptyCh, emptyScore, emptyVol, emptyMember := true, true, true, true, true
 	emptyY1, emptyM1, emptyD1, emptyY2, emptyM2, emptyD2 := true, true, true, true, true, true
 	for _, a := range d {
 		assert.NotZero(t, a.ID)
@@ -109,11 +112,14 @@ func TestSearchManga(t *testing.T) {
 		if a.EndDate.Day > 0 {
 			emptyD2 = false
 		}
-		assert.NotZero(t, a.Member)
+		if a.Member > 0 {
+			emptyMember = false
+		}
 	}
 	assert.False(t, emptySum)
 	assert.False(t, emptyCh)
 	assert.False(t, emptyScore)
+	assert.False(t, emptyMember)
 	assert.False(t, emptyVol)
 	assert.False(t, emptyY1)
 	assert.False(t, emptyM1)
