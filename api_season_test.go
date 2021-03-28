@@ -16,7 +16,7 @@ func TestGetSeason(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotZero(t, len(d))
-	emptyImg, emptySyn, emptyScore, emptyLic, emptyEp, emptyGenre, emptyProd := true, true, true, true, true, true, true
+	emptyImg, emptySyn, emptyMember, emptyScore, emptyLic, emptyEp, emptyGenre, emptyProd := true, true, true, true, true, true, true, true
 	emptyY, emptyM, emptyD := true, true, true
 	for _, p := range d {
 		assert.NotZero(t, p.ID)
@@ -39,7 +39,9 @@ func TestGetSeason(t *testing.T) {
 		if p.StartDate.Day != 0 {
 			emptyD = false
 		}
-		assert.NotZero(t, p.Member)
+		if p.Member > 0 {
+			emptyMember = false
+		}
 		if p.Score != 0.0 {
 			emptyScore = false
 		}
@@ -68,6 +70,7 @@ func TestGetSeason(t *testing.T) {
 	assert.False(t, emptyImg)
 	assert.False(t, emptySyn)
 	assert.False(t, emptyScore)
+	assert.False(t, emptyMember)
 	assert.False(t, emptyY)
 	assert.False(t, emptyM)
 	assert.False(t, emptyD)
