@@ -28,7 +28,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# golang.org/x/net v0.0.0-20210316092652-d523dce5a7f4
+# golang.org/x/net v0.0.0-20210331212208-0fccb6fa2b5c
 ## explicit
 golang.org/x/net/html
 golang.org/x/net/html/atom
