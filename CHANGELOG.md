@@ -12,7 +12,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Disable github action auto tagging.
-- Dependabot check changed to weekly.
 
 
 ## [1.2.11](https://github.com/rl404/go-malscraper/compare/v1.2.10...v1.2.11) - 2021-03-30
