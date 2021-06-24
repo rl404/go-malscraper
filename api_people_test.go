@@ -40,21 +40,25 @@ func TestGetPeopleCharacter(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotZero(t, len(d))
-	emptyImg := true
+	emptyAnimeImg, emptyCharImg := true, true
 	for _, c := range d {
 		assert.NotZero(t, c.Anime.ID)
 		assert.NotEmpty(t, c.Anime.Name)
-		assert.NotEmpty(t, c.Anime.Image)
 		assert.NotEmpty(t, c.Anime.Role)
 		assert.NotZero(t, c.Character.ID)
 		assert.NotEmpty(t, c.Character.Name)
 		assert.NotEmpty(t, c.Character.Role)
 
+		if c.Anime.Image != "" {
+			emptyAnimeImg = false
+		}
+
 		if c.Character.Image != "" {
-			emptyImg = false
+			emptyCharImg = false
 		}
 	}
-	assert.False(t, emptyImg)
+	assert.False(t, emptyAnimeImg)
+	assert.False(t, emptyCharImg)
 	time.Sleep(sleepDur)
 }
 
