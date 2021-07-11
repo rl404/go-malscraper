@@ -211,13 +211,16 @@ func TestSearchUser(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotZero(t, len(d))
-	emptyImg := true
+	emptyImg, emptyOnline := true,true
 	for _, p := range d {
 		assert.NotEmpty(t, p.Username)
 		if p.Image != "" {
 			emptyImg = false
 		}
-		assert.NotNil(t, p.LastOnline)
+		if p.LastOnline != nil {
+			emptyOnline = false
+		}
 	}
 	assert.False(t, emptyImg)
+	assert.False(t, emptyOnline)
 }
