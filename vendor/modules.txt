@@ -1,11 +1,10 @@
-# github.com/PuerkitoBio/goquery v1.7.0
+# github.com/PuerkitoBio/goquery v1.7.1
 ## explicit
 github.com/PuerkitoBio/goquery
 # github.com/allegro/bigcache v1.2.1
 github.com/allegro/bigcache
 github.com/allegro/bigcache/queue
 # github.com/andybalholm/cascadia v1.2.0
-## explicit
 github.com/andybalholm/cascadia
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
@@ -28,8 +27,7 @@ github.com/stretchr/objx
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/mock
 github.com/stretchr/testify/require
-# golang.org/x/net v0.0.0-20210331212208-0fccb6fa2b5c
-## explicit
+# golang.org/x/net v0.0.0-20210614182718-04defd469f4e
 golang.org/x/net/html
 golang.org/x/net/html/atom
 # gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
