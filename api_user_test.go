@@ -10,7 +10,7 @@ import (
 )
 
 func TestGetUser(t *testing.T) {
-	d, code, err := mal.GetUser("Archaeon")
+	d, code, err := mal.GetUser("ZephSilver")
 	require.NotNil(t, d)
 	require.Equal(t, code, http.StatusOK)
 	require.NoError(t, err)
