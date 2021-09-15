@@ -17,11 +17,15 @@ func TestGetGenres(t *testing.T) {
 		require.NoError(t, err)
 
 		assert.NotZero(t, len(d))
+		emptyCount := true
 		for _, p := range d {
 			assert.NotZero(t, p.ID)
 			assert.NotEmpty(t, p.Name)
-			assert.NotZero(t, p.Count)
+			if p.Count > 0 {
+				emptyCount = false
+			}
 		}
+		assert.False(t, emptyCount)
 	})
 
 	t.Run("ok-manga", func(t *testing.T) {
@@ -31,11 +35,15 @@ func TestGetGenres(t *testing.T) {
 		require.NoError(t, err)
 
 		assert.NotZero(t, len(d))
+		emptyCount := true
 		for _, p := range d {
 			assert.NotZero(t, p.ID)
 			assert.NotEmpty(t, p.Name)
-			assert.NotZero(t, p.Count)
+			if p.Count > 0 {
+				emptyCount = false
+			}
 		}
+		assert.False(t, emptyCount)
 	})
 	time.Sleep(sleepDur)
 }
