@@ -35,7 +35,7 @@ func TestGetProducer(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotZero(t, len(d))
-	emptyY, emptyM, emptyD, emptyLic, emptyEp := true, true, true, true, true
+	emptyY, emptyM, emptyD, emptyLic, emptyEp, emptyGen := true, true, true, true, true,true
 	for _, p := range d {
 		assert.NotZero(t, p.ID)
 		assert.NotEmpty(t, p.Image)
@@ -54,7 +54,9 @@ func TestGetProducer(t *testing.T) {
 		}
 		assert.NotZero(t, p.Member)
 		assert.NotZero(t, p.Score)
-		assert.NotZero(t, len(p.Genres))
+		if len(p.Genres) > 0 {
+			emptyGen = false
+		}
 		for _, g := range p.Genres {
 			assert.NotZero(t, g.ID)
 			assert.NotEmpty(t, g.Name)
@@ -77,6 +79,7 @@ func TestGetProducer(t *testing.T) {
 	assert.False(t, emptyD)
 	assert.False(t, emptyEp)
 	assert.False(t, emptyLic)
+	assert.False(t, emptyGen)
 	time.Sleep(sleepDur)
 }
 
