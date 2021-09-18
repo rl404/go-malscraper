@@ -35,7 +35,7 @@ func TestGetProducer(t *testing.T) {
 	require.NoError(t, err)
 
 	assert.NotZero(t, len(d))
-	emptyY, emptyM, emptyD, emptyLic, emptyEp, emptyGen := true, true, true, true, true,true
+	emptyY, emptyM, emptyD, emptyLic, emptyEp, emptyGen := true, true, true, true, true, true
 	for _, p := range d {
 		assert.NotZero(t, p.ID)
 		assert.NotEmpty(t, p.Image)
