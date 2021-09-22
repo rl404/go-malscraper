@@ -1,3 +1,5 @@
+> This library is not maintained anymore because MyAnimeList UI is always changing and I don't have time to keep up and update this library. You can fork this repo and continue maintaining it.
+
 # Go-Malscraper
 
 ![Github Test](https://github.com/rl404/go-malscraper/workflows/cron/badge.svg)
